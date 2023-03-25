@@ -7,7 +7,6 @@
             <div class="card mb-4">
                 <div class="card-header">
                   {{ Form::buttonBack('Kembali',['class'=>'text-white btn btn-info', 'href' => url()->previous()]) }}
-
                 </div>
                 <div class="card-body">
                     @if (session('message'))
@@ -27,21 +26,12 @@
                                 </div>
                               </div>
                               <span class="fw-semibold d-block mb-1"></span>     
-                              
-                              <table style="width:100%">
-                                <tr>
-                                  <td>
-                                    <h3 class="card-title mb-2 text-white">{{ $soals->judul_soal }}</h3>
-                                  </td>
-                                  <td style="text-align:end">
-                                    {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal.edit',['user'=> Auth::akses(),'idm'=> $soals->id_soal,'id'=>$soals->id_mapel])] )}}
-                                  </td>
-                                </tr>     
-                              </table>
+                              <h3 class="card-title mb-2 text-white">{{ $soals->judul_soal }}</h3>
+                              {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal.edit',['user'=> Auth::akses(),'idm'=> $soals->id_soal,'id'=>$soals->id_mapel])] )}}
                             </div>
                           </div>
                         </div>
-                   @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -58,17 +48,8 @@
                                 </div>
                               </div>
                               <span class="fw-semibold d-block mb-1"></span>     
-                              
-                              <table style="width:100%">
-                                <tr>
-                                  <td>
-                                    <h3 class="card-title mb-2 text-white">{{ $pilgans->judul_soal }}</h3>
-                                  </td>
-                                  <td style="text-align:end">
-                                    {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal.edit',['user'=> Auth::akses(),'idm'=> $soals->id_soal,'id'=>$soals->id_mapel])] )}}
-                                  </td>
-                                </tr>     
-                              </table>
+                                <h3 class="card-title mb-2 text-white">{{ $pilgans->judul_soal }}</h3>
+                                {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal.edit',['user'=> Auth::akses(),'idm'=> $soals->id_soal,'id'=>$soals->id_mapel])] )}}
                             </div>
                           </div>
                         </div>
