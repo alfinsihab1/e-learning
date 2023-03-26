@@ -77,6 +77,7 @@ Route::prefix('admin')->middleware(['auth','auth.admin'])->group(function(){
     Route::get('mapel/soal/Pilihan', [PilihanGandaController::class, 'index'])->name('soal.index.pilgan');
     Route::get('mapel/soal/form/Pilihan', [PilihanGandaController::class, 'create'])->name('soal.create.pilgan');
     Route::post('mapel/soal/store/Pilihan', [PilihanGandaController::class, 'store'])->name('soal.store.pilgan');
+    Route::get('mapel/soal/Pilihan/{user}/{id}/{idm}', [PilihanGandaController::class, 'show'])->name('soal.show.pilgan');
     
     //Route Untuk jawaban
     Route::post('jawaban/{user}/{id}/{idm}', [JawabanController::class, 'store'])->name('jawaban.store');

@@ -49,7 +49,7 @@
                               </div>
                               <span class="fw-semibold d-block mb-1"></span>     
                                 <h3 class="card-title mb-2 text-white">{{ $pilgans->judul_soal }}</h3>
-                                {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal.edit',['user'=> Auth::akses(),'idm'=> $soals->id_soal,'id'=>$soals->id_mapel])] )}}
+                                {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('soal.show.pilgan',['user'=> Auth::akses(),'idm'=> $pilgans->id_soal_pilihan,'id'=>$pilgans->id_mapel])] )}}
                             </div>
                           </div>
                         </div>

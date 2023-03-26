@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mapel;
 use App\Models\PilihanGanda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -92,9 +93,38 @@ class PilihanGandaController extends Controller
      * @param  \App\Models\PilihanGanda  $pilihanGanda
      * @return \Illuminate\Http\Response
      */
-    public function show(PilihanGanda $pilihanGanda)
+    public function show(PilihanGanda $pilihanGanda, Request $request)
     {
-        //
+
+        $soal_pilihan = DB::table('pilihan_gandas')
+                        ->join('mapels','pilihan_gandas.id_mapel','mapels.id_mapel')
+                        ->select('pilihan_gandas.*','mapels.nama_mapel')
+                        ->where([
+                            ['pilihan_gandas.id_soal_pilihan','=', $request->idm],
+                            ['mapels.id_mapel','=', $request->id]
+                        ])->first();
+        $mapel = Mapel::select('id_mapel','nama_mapel')->get();
+        $soal_pilihan->soal = json_decode($soal_pilihan->soal,true);
+        $soal_pilihan->opsi = json_decode($soal_pilihan->opsi, true);
+        
+        $count_soal = count($soal_pilihan->soal);
+        $count_opsi = count($soal_pilihan->opsi);
+        
+        
+        if(Auth::akses() == 'siswa'){
+            return view('siswa.pilihan.pilihanindex',[
+                'daftar_mapel' => $mapel,
+                'soal' => $soal_pilihan,
+                'count' => $count_soal,
+                'dis' => '',
+                'display' => 'block',
+                'cek' => false,
+                'jawaban' => ''
+            ]);
+        }
+        else{
+            return view('mapel.soal.pilihan_ganda.edit');
+        }
     }
 
     /**
