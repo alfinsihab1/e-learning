@@ -1,6 +1,8 @@
 @extends('layouts.app_new')
 
 {{-- perubahan --}}
+{{-- perubahan --}}
+{{-- perubahan --}}
 
 @section('content')
 <div class="row justify-content-center">

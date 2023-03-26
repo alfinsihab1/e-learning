@@ -19,7 +19,7 @@
                         {{-- {{ Form::text('jawaban[]',$cek == true ? $jawaban->jawaban_soal[$i] : '',array($dis,'id'=>'soal','class' => 'form-control mb-4', 'placeholder' => 'Silahkan Isi Jawaban Anda')); }} --}}
                             
                             @for($j=0;$j<=4;$j++)
-                                <input type="radio" value={{ $j }} name="opsi[]"> {{ $soal->opsi[$i][$j] }}      
+                                <input id="opsi{{ $i$j }}" type="radio" value={{ $j }} name="opsi[]"> {{ $soal->opsi[$i][$j] }}      
                                 <div class="mb-2"></div>
                             @endfor
                             <div class="mb-4"></div>
