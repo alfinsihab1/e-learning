@@ -11,7 +11,7 @@
 
                
                 <div class="card-body">
-                    {{ Form::open(array('route' => array('jawaban.store',['user'=>Auth::akses(),'id'=>$soal->id_mapel, 'idm'=>$soal->id_soal_pilihan])) )  }}
+                    {{ Form::open(array('route' => array('jawaban.pilihan.simpan',['count'=>$count,'user_id'=>Auth::id(),'id'=>$soal->id_mapel, 'idm'=>$soal->id_soal_pilihan])) )  }}
                        
                         @for($i=1; $i <= $count;$i++)
                         {{ Form::label('jawaban', $i.'. '.$soal->soal[$i]); }}
@@ -19,7 +19,7 @@
                         {{-- {{ Form::text('jawaban[]',$cek == true ? $jawaban->jawaban_soal[$i] : '',array($dis,'id'=>'soal','class' => 'form-control mb-4', 'placeholder' => 'Silahkan Isi Jawaban Anda')); }} --}}
                             
                             @for($j=0;$j<=4;$j++)
-                                <input id="opsi{{ $i$j }}" type="radio" value={{ $j }} name="opsi[]"> {{ $soal->opsi[$i][$j] }}      
+                                <input id="opsi{{ $i }}{{ $j }}" type="radio" value={{ $j }} name="opsi{{ $i }}"> {{ $soal->opsi[$i][$j] }}      
                                 <div class="mb-2"></div>
                             @endfor
                             <div class="mb-4"></div>
