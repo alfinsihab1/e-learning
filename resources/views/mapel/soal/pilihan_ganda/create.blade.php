@@ -57,8 +57,8 @@
             $('.addPil').on('click', function(){
                 // opsi pilihan------------------
                 var opsi = '<div class="col-md-9">{{ Form::text('opsi[]','',array('placeholder'=>'Opsi Soal Pilihan Ganda...','id'=>'opsi','class' => 'opsi form-control mb-1')); }}</div>';
-                var hapusOpsinya = '<div class="col-md-1 hapusOpsi">{{ Form::buttonBack('<i class="bx bx-trash"></i>', array('id'=>'hapusOp','class' => 'mb-1 remove_opsi btn btn-danger text-white')); }}</div>';
-                var divnya = '<div class="col-md-10 d-inline-flex opsiPill">'+opsi+hapusOpsinya+'</div>';
+                // var hapusOpsinya = '<div class="col-md-1 hapusOpsi">{{ Form::buttonBack('<i class="bx bx-trash"></i>', array('id'=>'hapusOp','class' => 'mb-1 remove_opsi btn btn-danger text-white')); }}</div>';
+                var divnya = '<div class="col-md-10 d-inline-flex opsiPill">'+opsi+'</div>';
                 
                 // input soal pilgannya-------------
                 var soalPil = '{{ Form::text('soal[]','',array('placeholder'=>'Soal Pilihan Ganda ketik disini...','id'=>'soal','class' => 'soal form-control mb-4')); }}';
