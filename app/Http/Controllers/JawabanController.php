@@ -29,6 +29,17 @@ class JawabanController extends Controller
         //
     }
 
+    public function simpan(Request $request,$user_id,$id, $idm)
+    {
+        $count = $request->count;
+        $jawaban_opsi = [];
+
+        for($i=1;$i<=$count;$i++){
+            $jawaban_opsi[$i] = $request['opsi'.$i];
+        }
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *

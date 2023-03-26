@@ -24,17 +24,8 @@
                                 </div>
                               </div>
                               <span class="fw-semibold d-block mb-1"></span>     
-                              
-                              <table style="width:100%">
-                                <tr>
-                                  <td>
-                                    <h3 class="card-title mb-2 text-white">{{ $daftar_soals->nama_mapel }}</h3>
-                                  </td>
-                                  <td style="text-align:end">
-                                    {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal',$daftar_soals->id_mapel)] )}}
-                                  </td>
-                                </tr>     
-                              </table>
+                              <h3 class="card-title mb-2 text-white">{{ $daftar_soals->nama_mapel }}</h3>
+                              {{ Form::buttonBack('cek',['class'=> 'btn btn-light','href'=> route('mapel.soal',$daftar_soals->id_mapel)] )}}
                             </div>
                           </div>
                         </div>
