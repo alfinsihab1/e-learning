@@ -37,7 +37,7 @@ class JawabanController extends Controller
         for($i=1;$i<=$count;$i++){
             $jawaban_opsi[$i] = $request['opsi'.$i];
         }
-        
+        dd($jawaban_opsi);
     }
 
     /**
