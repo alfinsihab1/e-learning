@@ -21,9 +21,9 @@ class BerandaSiswa extends Controller
     
         $mapel = Soal::where('id_kelas','=',$kelas->nama_kelas)->get();
         $pilgan = PilihanGanda::where('id_kelas','=',$kelas->nama_kelas)->get();
-        $cek_soal_done = Jawaban::where([
+        $cek_soal_done = Jawaban::orderBy('id_jawaban','desc')->where([
             ['id_user','=', Auth::id()],
-        ])->get();
+        ])->skip(0)->take(4)->get();
 
 
         return view('siswa.index',[

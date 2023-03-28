@@ -32,12 +32,22 @@ class JawabanController extends Controller
     public function simpan(Request $request,$user_id,$id, $idm)
     {
         $count = $request->count;
-        $jawaban_opsi = [];
+        $opsinya = [];
 
         for($i=1;$i<=$count;$i++){
-            $jawaban_opsi[$i] = $request['opsi'.$i];
+            $opsinya[$i] = $request['opsi'.$i];
         }
-        dd($jawaban_opsi);
+        
+        $jawaban_opsi = new Jawaban();
+        $jawaban_opsi->id_user = $user_id;
+        $jawaban_opsi->id_mapel = $id;
+        $jawaban_opsi->id_soal = $idm;
+        $jawaban_opsi->type = 2;
+        $jawaban_opsi->jawaban_soal = json_encode($opsinya);
+        $jawaban_opsi->save();
+        
+        $user_akses = Auth::akses();
+        return redirect()->route($user_akses.'.index')->with('message','Soal Selesai Dikerjakan');    
     }
 
     /**
@@ -63,6 +73,7 @@ class JawabanController extends Controller
         $jawaban_baru->id_user = Auth::id();
         $jawaban_baru->id_mapel = $id;
         $jawaban_baru->id_soal = $idm;
+        $jawaban_baru->type = 1;
         $jawaban_baru->jawaban_soal = json_encode($a);
         $jawaban_baru->save();
 

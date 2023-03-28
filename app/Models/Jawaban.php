@@ -28,6 +28,11 @@ class Jawaban extends Model
         return $this->belongsTo(Soal::class, 'id_soal', 'id_soal');
     }
 
+    public function pilg()
+    {
+        return $this->belongsTo(PilihanGanda::class, 'id_soal', 'id_soal_pilihan');
+    }
+
     /**
      * Get the mapel that owns the Jawaban
      *

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Mapel;
+use App\Models\Jawaban;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,5 +25,15 @@ class PilihanGanda extends Model
     public function mapel()
     {
         return $this->belongsTo(Mapel::class, 'id_mapel','id_mapel');
+    }
+
+    public function jawab()
+    {
+        return $this->hasMany(Jawaban::class);
+    }
+
+    public function kelasku()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas','id_kelas');
     }
 }

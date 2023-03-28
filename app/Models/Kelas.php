@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Soal;
 use App\Models\User;
+use App\Models\PilihanGanda;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,6 +27,11 @@ class Kelas extends Model
     public function soals()
     {
         return $this->hasMany(Soal::class);
+    }
+
+    public function pilihgan()
+    {
+        return $this->hasMany(PilihanGanda::class);
     }
     
 }

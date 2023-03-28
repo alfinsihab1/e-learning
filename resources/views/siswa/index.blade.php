@@ -95,7 +95,11 @@
                             <table style="width:100%">
                               <tr>
                                 <td>
-                                  <h4 class="card-title mb-2 ">{{ $tampil_soals->soals->judul_soal }}</h4>
+                                  @if($tampil_soals->type == 1)
+                                    <h4 class="card-title mb-2 ">{{ $tampil_soals->soals->judul_soal }}</h4>
+                                  @elseif($tampil_soals->type == 2)
+                                    <h4 class="card-title mb-2 ">{{ $tampil_soals->pilg->judul_soal }}</h4>
+                                  @endif
                                 </td>
                                 <td style="text-align:end">
                                   {{ Form::buttonBack('cek',['class'=> 'btn btn-dark','href'=> route('jawaban.cek', 
